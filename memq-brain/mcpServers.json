@@ -1,0 +1,13 @@
+{
+  "memq": {
+    "command": "npx",
+    "args": [
+      "-y",
+      "mcp-remote@latest",
+      "https://mcp.multinex.ai/mcp/v1"
+    ],
+    "env": {
+      "MEMQ_API_KEY_AUTH_HEADER": "${MEMQ_API_KEY_AUTH_HEADER}"
+    }
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "name": "memq-brain",
+  "description": "Hosted MemQ brain connection for Claude Code with REUNION-first startup, Mnemosyne hydration, journaling, and reflective learning loops.",
+  "version": "1.1.0",
+  "author": {
+    "name": "Multinex AI"
+  },
+  "homepage": "https://billing.multinex.ai/signup",
+  "repository": "https://github.com/multinex-ai/memq-connect",
+  "license": "MIT",
+  "keywords": [
+    "memq",
+    "memory",
+    "mnemosyne",
+    "mcp",
+    "claude-code",
+    "reunion"
+  ],
+  "mcpServers": "./mcpServers.json"
+}

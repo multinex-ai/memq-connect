@@ -1,0 +1,43 @@
+{
+  "name": "multinex-memq",
+  "owner": {
+    "name": "Multinex AI",
+    "email": "support@multinex.ai"
+  },
+  "metadata": {
+    "description": "Claude Code plugin for the hosted Multinex MemQ brain: persistent memory, Mnemosyne context hydration, and reflective learning loops.",
+    "version": "1.1.0",
+    "pluginRoot": "."
+  },
+  "plugins": [
+    {
+      "name": "memq-brain",
+      "source": "memq-brain",
+      "description": "Connect Claude Code to the hosted MemQ brain with REUNION-first startup, Mnemosyne hydration, episodic recall, checkpointed context save, and reflective learning loops.",
+      "version": "1.1.0",
+      "author": {
+        "name": "Multinex AI"
+      },
+      "homepage": "https://billing.multinex.ai/signup",
+      "repository": "https://github.com/multinex-ai/memq-connect",
+      "license": "MIT",
+      "keywords": [
+        "memq",
+        "mcp",
+        "memory",
+        "mnemosyne",
+        "claude-code",
+        "reunion",
+        "episodic-memory"
+      ],
+      "category": "memory",
+      "tags": [
+        "hosted-mcp",
+        "oauth",
+        "journal",
+        "brain-pathways",
+        "namespace-aware"
+      ]
+    }
+  ]
+}
