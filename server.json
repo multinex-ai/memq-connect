@@ -3,7 +3,7 @@
   "name": "ai.multinex/memq",
   "title": "Multinex MemQ",
   "description": "Sovereign persistent memory for AI agents. Durable recall, associative and episodic replay, sleep-like consolidation, predictive correction, commons resonance, Mnemosyne context packing, observation-aware Soul Journal distillation, namespace discovery, and benchmark-backed continuity. Reinforcement pathways model sensorimotor transfer, executive control, reward learning, and social cognition inside constitutional namespace boundaries. Supports OAuth with PKCE for interactive clients, billing-issued API keys for static clients, and legacy manual VISA tokens for compatibility.",
-  "version": "2.7.2",
+  "version": "2.8.0",
   "remotes": [
     {
       "type": "streamable-http",
@@ -25,7 +25,7 @@
     "proof": "https://multinex.ai/benchmarks/memq",
     "reproducibility": "https://multinex.ai/benchmarks/memq",
     "npm": "@multinex/memq-mcp",
-    "docker": "ghcr.io/multinex-ai/memq-mcp-server:v2.7.2",
+    "docker": "ghcr.io/multinex-ai/memq-mcp-server:v2.8.0",
     "pricing": {
       "hosted": "$29/seat/month (15-day free trial available)",
       "internal": "Free for authenticated @multinex.ai users",
@@ -37,6 +37,6 @@
       "manualApiKeyHeader": "Authorization",
       "manualVisaHeader": "X-Munx-Visa-Token"
     },
-    "benchmark_scope": "Artifact-backed retrieval benchmark: MemQ MCP reached 100% primary@1, 100% recall@K, 100% leakage-free, 13 ms average latency, and 25 ms p95 latency; Mem0 OSS reached 58% primary@1, 100% recall@K, 67% leakage-free, 2511 ms average latency, and 2814 ms p95 latency. Current public proof lives at https://multinex.ai/benchmarks/memq."
+    "benchmark_scope": "Production v2.8.0 — 6 embedding profiles (memq-runtime, OpenAI, Google, Cohere), 9 live MCP capabilities, quantum-entropy reflection scheduling (ANU QRNG), 6000 writes/min and 6000 reads/min per namespace, 0.985 dedup threshold, 24-source replay fan-out, sub-second health round-trip on warm edge. Full benchmark methodology at https://multinex.ai/benchmarks/memq."
   }
 }
