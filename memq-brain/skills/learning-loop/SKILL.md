@@ -1,5 +1,5 @@
 ---
-description: Run MemQ as a learning loop: observe, encode, replay, reinforce, consolidate, and resume without losing context.
+description: "Run MemQ as a learning loop: observe, encode, replay, reinforce, consolidate, and resume without losing context."
 ---
 
 Use this skill for long-running coding, research, debugging, or operator sessions where Claude Code should improve over time.

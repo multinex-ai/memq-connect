@@ -12,7 +12,7 @@
   "plugins": [
     {
       "name": "memq-brain",
-      "source": "memq-brain",
+      "source": "./memq-brain",
       "description": "Connect Claude Code to the hosted MemQ brain with REUNION-first startup, Mnemosyne hydration, episodic recall, checkpointed context save, and reflective learning loops.",
       "version": "1.1.0",
       "author": {
