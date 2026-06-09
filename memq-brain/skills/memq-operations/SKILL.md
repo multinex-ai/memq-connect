@@ -107,6 +107,11 @@ Do not skip `mnemosyne_context`. It compresses recent episodic, semantic,
 procedural, and checkpoint memory into a token-efficient pack. Running it
 before reasoning avoids re-reading the entire journal.
 
+For research tasks, shared operational questions, public-source synthesis,
+or cross-team pattern lookup, call `commons_search` alongside private namespace
+retrieval. `_commons` is the only shared readable namespace; use it for
+governed reusable knowledge, never for private tenant implementation details.
+
 ---
 
 ## 5. Memory Types — What Each Is For

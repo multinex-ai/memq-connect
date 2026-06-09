@@ -5,7 +5,7 @@
     "email": "support@multinex.ai"
   },
   "metadata": {
-    "description": "Claude Code plugin for the hosted Multinex MemQ brain: persistent memory, Mnemosyne context hydration, and reflective learning loops.",
+    "description": "Claude Code plugin for the hosted Multinex MemQ brain: persistent memory, handoff retrieval, corrective root-cause capture, and reflective learning loops.",
     "version": "1.1.0",
     "pluginRoot": "."
   },
@@ -13,7 +13,7 @@
     {
       "name": "memq-brain",
       "source": "./memq-brain",
-      "description": "Connect Claude Code to the hosted MemQ brain with REUNION-first startup, Mnemosyne hydration, episodic recall, checkpointed context save, and reflective learning loops.",
+      "description": "Connect Claude Code to the hosted MemQ brain with REUNION-first startup, team handoff retrieval, checkpointed context save, resolved-issue root-cause capture, and reflective learning loops.",
       "version": "1.1.0",
       "author": {
         "name": "Multinex AI"
@@ -28,7 +28,9 @@
         "mnemosyne",
         "claude-code",
         "reunion",
-        "episodic-memory"
+        "episodic-memory",
+        "handoff",
+        "root-cause"
       ],
       "category": "memory",
       "tags": [
@@ -36,7 +38,8 @@
         "oauth",
         "journal",
         "brain-pathways",
-        "namespace-aware"
+        "namespace-aware",
+        "commons-candidate"
       ]
     }
   ]
