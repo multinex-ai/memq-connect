@@ -1,8 +1,12 @@
 {
   "memq": {
-    "command": "node",
+    "command": "npx",
     "args": [
-      "./bin/memq-http-bridge.mjs"
+      "-y",
+      "mcp-remote@latest",
+      "https://mcp.multinex.ai/mcp/v1",
+      "--header",
+      "Authorization:${MEMQ_API_KEY_AUTH_HEADER}"
     ],
     "env": {
       "MEMQ_API_KEY_AUTH_HEADER": "${MEMQ_API_KEY_AUTH_HEADER}"
