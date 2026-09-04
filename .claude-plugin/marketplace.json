@@ -5,22 +5,22 @@
     "email": "support@multinex.ai"
   },
   "metadata": {
-    "description": "Claude Code plugin for the hosted Multinex MemQ brain: persistent memory, handoff retrieval, corrective root-cause capture, and reflective learning loops.",
+    "description": "Claude Code plugins for MemQ: hosted brain connection, Mnemosyne workflows, and benchmark-backed enterprise evaluation.",
     "version": "1.2.0",
     "pluginRoot": "."
   },
   "plugins": [
     {
       "name": "memq-brain",
-      "source": "./memq-brain",
-      "description": "Connect Claude Code to the hosted MemQ brain with REUNION-first startup, team handoff retrieval, checkpointed context save, resolved-issue root-cause capture, and reflective learning loops.",
+      "source": "memq-brain",
+      "description": "Connect Claude Code to the hosted MemQ brain: REUNION-first startup, durable plan-state resume, distributed team sync, multi-agent coordination and handoffs, Mnemosyne hydration, and reflective learning loops.",
       "version": "1.2.0",
       "author": {
         "name": "Multinex AI"
       },
       "homepage": "https://billing.multinex.ai/signup",
       "repository": "https://github.com/multinex-ai/memq-connect",
-      "license": "MIT",
+      "license": "BUSL-1.1",
       "keywords": [
         "memq",
         "mcp",
@@ -28,9 +28,7 @@
         "mnemosyne",
         "claude-code",
         "reunion",
-        "episodic-memory",
-        "handoff",
-        "root-cause"
+        "episodic-memory"
       ],
       "category": "memory",
       "tags": [
@@ -38,8 +36,33 @@
         "oauth",
         "journal",
         "brain-pathways",
-        "namespace-aware",
-        "commons-candidate"
+        "namespace-aware"
+      ]
+    },
+    {
+      "name": "memq-benchmarks",
+      "source": "memq-benchmarks",
+      "description": "Load benchmark-backed MemQ proof points, evaluation prompts, and enterprise positioning without drifting beyond what the Multinex repo actually proves today.",
+      "version": "1.0.0",
+      "author": {
+        "name": "Multinex AI"
+      },
+      "homepage": "https://multinex.ai/memq",
+      "repository": "https://github.com/multinex-ai/memq-connect",
+      "license": "BUSL-1.1",
+      "keywords": [
+        "memq",
+        "benchmarks",
+        "enterprise",
+        "evaluation",
+        "claude-code"
+      ],
+      "category": "evaluation",
+      "tags": [
+        "proof",
+        "benchmark-backed",
+        "enterprise-memory",
+        "multinex"
       ]
     }
   ]

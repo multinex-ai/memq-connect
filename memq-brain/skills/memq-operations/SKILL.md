@@ -51,9 +51,10 @@ with a nicer API. The critical differences:
 
 **MCP endpoint:** `https://mcp.multinex.ai/mcp/v1`
 
-**OAuth (interactive, default):** `mcp-remote@latest` will auto-discover the
-OAuth server from the endpoint's `.well-known/oauth-protected-resource/mcp/v1`
-metadata and redirect to `https://billing.multinex.ai` for the PKCE flow.
+**OAuth (interactive, default):** Claude Code's native hosted HTTP transport
+auto-discovers the OAuth server from the endpoint's
+`.well-known/oauth-protected-resource/mcp/v1` metadata and redirects to
+`https://billing.multinex.ai` for the PKCE flow.
 Complete once; the token is cached. OAuth tokens are prefixed `mnxoa_`.
 
 **API key (CI / service accounts):**
@@ -62,6 +63,11 @@ Get a key at `https://billing.multinex.ai/dashboard`.
 
 **Legacy VISA token:** Pass `X-Munx-Visa-Token` header for compatibility
 with older clients only.
+
+**Conversation privacy:** MemQ receives only arguments in explicit MCP tool
+calls. Do not dump or store raw transcripts. Only persist the context explicitly
+selected because it changes future decisions; unrelated conversation content
+must remain in Claude Code.
 
 ---
 
@@ -106,11 +112,6 @@ depends on knowing the scope.
 Do not skip `mnemosyne_context`. It compresses recent episodic, semantic,
 procedural, and checkpoint memory into a token-efficient pack. Running it
 before reasoning avoids re-reading the entire journal.
-
-For research tasks, shared operational questions, public-source synthesis,
-or cross-team pattern lookup, call `commons_search` alongside private namespace
-retrieval. `_commons` is the only shared readable namespace; use it for
-governed reusable knowledge, never for private tenant implementation details.
 
 ---
 
@@ -747,6 +748,64 @@ Use this before calling `add_memory` with text that exceeds 6 000 bytes.
 `semantic` preserves meaning boundaries; `fixed` is uniform; `paragraph`
 splits on blank lines.
 
+### 7.25 `plan_state_write`
+Create or update the durable plan for a task — the multi-agent claim
+primitive. One plan per task, addressed by a stable `plan_id`.
+
+```json
+{
+  "plan_id": "string (required, stable per task)",
+  "state_patch": "object (merged into current plan state)",
+  "objective": "string",
+  "agent_id": "string (who holds the claim)"
+}
+```
+
+Write the claim **before** starting contested work; other agents check it
+via `plan_state_read`. Never overwrite a plan another agent is actively
+checkpointing — hand off instead.
+
+### 7.26 `plan_state_read`
+Read the current durable plan for a `plan_id`. Call before starting any
+task another agent might also pick up: a live, recently-checkpointed plan
+owned by someone else means the work is claimed.
+
+### 7.27 `plan_state_checkpoint`
+Snapshot the plan at a phase boundary (planned → implemented → verified)
+or before risky steps. A checkpoint must let a stranger continue: done /
+next / blocked / invariants discovered.
+
+### 7.28 `plan_state_resume`
+Reload the durable plan on session start. This — not `recent_memory` — is
+the correct resume path when a checkpoint exists: it returns the plan
+exactly as last checkpointed, so work continues from "what is next".
+
+### 7.29 `reflection_handoff`
+Hand finished work forward to another agent as a structured record:
+architectural decisions, execution summary, open questions. The receiver
+starts from the handoff plus `plan_state_resume`, never from raw diffs.
+
+### 7.30 `handoff_lifecycle_sweep`
+Expire stale or abandoned handoffs in the namespace. Run periodically, or
+when handoffs look cluttered; treat any handoff older than the task's
+natural cadence as suspect until verified against current state.
+
+### 7.31 `bridge_sync`
+Synchronize memory across bridged brains/backends. Use when cooperating
+agents run against different bridged MemQ deployments, before assuming
+their views agree; re-run `plan_state_read` afterwards.
+
+### 7.32 `temporal_graph_query`
+Query the episodic graph across time — "what happened while I was away",
+how a decision or customer relationship evolved, what changed between two
+checkpoints. Complements `plan_state_resume` when other agents advanced
+shared state in the meantime.
+
+### 7.33 `slice_project`
+Project a scoped slice of team memory for a bounded task (collection
+`team_slices`). Use to give a sub-agent exactly the context slice it
+needs instead of the whole namespace.
+
 ---
 
 ## 8. Observation Schema (for `journal_record` and `save_context`)
@@ -1003,7 +1062,27 @@ All other tools count as reads.
 
 ---
 
-## 15. Signup and Docs
+## 15. Team & Multi-Agent Operation
+
+When more than one agent (or more than one person's agents) shares a
+namespace, two companion skills carry the procedures — load them:
+
+- **`team-sync`** — namespace alignment handshake (compare
+  `namespace_info` before sharing; drift is silent), the approve-in model
+  for team memory, recall-before-asking-a-human, shared decision log,
+  and longitudinal relationship memory.
+- **`multi-agent-coordination`** — claiming work with `plan_state_write`
+  / `plan_state_read`, checkpoint cadence, durable resume via
+  `plan_state_resume`, handoffs via `reflection_handoff` +
+  `handoff_lifecycle_sweep`, and catch-up via `temporal_graph_query`.
+
+Rules of thumb: one writer per plan; confirm the shared namespace before
+any coordination write; record failures as `failure_record` so no agent
+repeats a dead end.
+
+---
+
+## 16. Signup and Docs
 
 - Free account: `https://billing.multinex.ai/signup?product=memq`
 - Dashboard + API keys: `https://billing.multinex.ai/dashboard`
