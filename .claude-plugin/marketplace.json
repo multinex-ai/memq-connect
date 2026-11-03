@@ -2,68 +2,36 @@
   "name": "multinex-memq",
   "owner": {
     "name": "Multinex AI",
-    "email": "support@multinex.ai"
+    "email": "support@multinex.ai",
+    "url": "https://multinex.ai"
   },
   "metadata": {
-    "description": "Claude Code plugins for MemQ: hosted brain connection, Mnemosyne workflows, and benchmark-backed enterprise evaluation.",
-    "version": "1.2.0",
-    "pluginRoot": "."
+    "description": "MemQ shared memory and skills for AI agents.",
+    "version": "1.3.0"
   },
   "plugins": [
     {
       "name": "memq-brain",
-      "source": "memq-brain",
-      "description": "Connect Claude Code to the hosted MemQ brain: REUNION-first startup, durable plan-state resume, distributed team sync, multi-agent coordination and handoffs, Mnemosyne hydration, and reflective learning loops.",
-      "version": "1.2.0",
+      "version": "1.3.0",
+      "description": "Shared memory for your AI agents: resume projects, preserve decisions, and hand work to teammates across sessions.",
       "author": {
-        "name": "Multinex AI"
-      },
-      "homepage": "https://billing.multinex.ai/signup",
-      "repository": "https://github.com/multinex-ai/memq-connect",
-      "license": "BUSL-1.1",
-      "keywords": [
-        "memq",
-        "mcp",
-        "memory",
-        "mnemosyne",
-        "claude-code",
-        "reunion",
-        "episodic-memory"
-      ],
-      "category": "memory",
-      "tags": [
-        "hosted-mcp",
-        "oauth",
-        "journal",
-        "brain-pathways",
-        "namespace-aware"
-      ]
-    },
-    {
-      "name": "memq-benchmarks",
-      "source": "memq-benchmarks",
-      "description": "Load benchmark-backed MemQ proof points, evaluation prompts, and enterprise positioning without drifting beyond what the Multinex repo actually proves today.",
-      "version": "1.0.0",
-      "author": {
-        "name": "Multinex AI"
+        "name": "Multinex AI",
+        "email": "support@multinex.ai",
+        "url": "https://multinex.ai"
       },
       "homepage": "https://multinex.ai/memq",
       "repository": "https://github.com/multinex-ai/memq-connect",
-      "license": "BUSL-1.1",
+      "license": "MIT",
       "keywords": [
         "memq",
-        "benchmarks",
-        "enterprise",
-        "evaluation",
-        "claude-code"
+        "mcp",
+        "agent-memory",
+        "shared-context",
+        "handoff",
+        "team-memory"
       ],
-      "category": "evaluation",
-      "tags": [
-        "proof",
-        "benchmark-backed",
-        "enterprise-memory",
-        "multinex"
-      ]
+      "source": "./memq-brain",
+      "category": "productivity"
     }
   ]
 }

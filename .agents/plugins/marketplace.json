@@ -1,0 +1,17 @@
+{
+  "name": "multinex-memq",
+  "plugins": [
+    {
+      "name": "memq-brain",
+      "source": {
+        "source": "local",
+        "path": "./memq-brain"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Productivity"
+    }
+  ]
+}

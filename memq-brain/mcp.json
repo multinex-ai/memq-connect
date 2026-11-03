@@ -1,0 +1,25 @@
+{
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/mcp.schema.json",
+  "mcpServers": {
+    "memq": {
+      "type": "streamable-http",
+      "url": "https://mcp.multinex.ai/mcp/v1",
+      "extensions": {
+        "com.openai": {
+          "auth": {
+            "type": "oauth",
+            "client": {
+              "mode": "dcr"
+            },
+            "registrationUrl": "https://billing.multinex.ai/oauth/register",
+            "authorizationUrl": "https://billing.multinex.ai/oauth/authorize",
+            "tokenUrl": "https://billing.multinex.ai/oauth/token",
+            "defaultScopes": [
+              "memq.mcp"
+            ]
+          }
+        }
+      }
+    }
+  }
+}
