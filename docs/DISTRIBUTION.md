@@ -5,7 +5,7 @@ Snapshot: November 3, 2026.
 | Channel | State | Evidence / next action |
 |---|---|---|
 | Official MCP Registry | Active: 2.8.1 | https://registry.modelcontextprotocol.io/v0.1/servers/ai.multinex%2Fmemq/versions/latest |
-| Public GitHub repository marketplace | Version 1.3.0 prepared | Run node scripts/validate.mjs; release ZIP after validation |
+| Public GitHub repository marketplace | Published: 1.3.0 | https://github.com/multinex-ai/memq-connect/releases/tag/v1.3.0 |
 | Claude directory: connector and plugin | Not submitted in this revision | Publisher sign-in, connector tests, populated reviewer account, portal checks, terms, and review required |
 | OpenAI directory: ChatGPT and Codex | Not submitted in this revision | Verified publishing identity selection, ZIP upload, domain verification, OAuth/tool checks, and review required |
 
@@ -35,3 +35,5 @@ Run node scripts/validate.mjs, then node scripts/package.mjs. The ZIP contains o
 - Portable MCP core: Agent Plugins 1.0.0 schema passes when the documented OpenAI auth extension is evaluated separately. The published base schema currently rejects a server-level `extensions` field even though OpenAI's current build guide requires that location for OAuth configuration; full OpenAI portal validation remains required.
 - Local package checks: referenced plugins/assets, consistent versions, OAuth configuration, skill names, and credential-like file checks pass.
 - These checks do not establish a successful OAuth round trip or every-tool execution in Claude, ChatGPT, or Codex. Those remain submission gates.
+
+Published release ZIP SHA-256: `1653053519909cb8dd2ebd202b4a2cb9f5580c112373584b24185264471d0ef6`. Download verified against the local release artifact.
