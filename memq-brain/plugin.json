@@ -1,0 +1,49 @@
+{
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
+  "name": "memq-brain",
+  "version": "1.3.0",
+  "description": "Shared memory for your AI agents: resume projects, preserve decisions, and hand work to teammates across sessions.",
+  "author": {
+    "name": "Multinex AI",
+    "email": "support@multinex.ai",
+    "url": "https://multinex.ai"
+  },
+  "homepage": "https://multinex.ai/memq",
+  "repository": "https://github.com/multinex-ai/memq-connect",
+  "license": "MIT",
+  "keywords": [
+    "memq",
+    "mcp",
+    "agent-memory",
+    "shared-context",
+    "handoff",
+    "team-memory"
+  ],
+  "extensions": {
+    "com.openai": {
+      "onboardingSkill": "./skills/reunion-first/SKILL.md",
+      "interface": {
+        "displayName": "MemQ",
+        "shortDescription": "One shared memory for your AI agents and teammates",
+        "longDescription": "Connect your agents to the same authorized project memory. Save selected decisions and checkpoints, resume work in another session, and hand teammates the context they need. MemQ combines an MCP connection with reusable skills for recall, learning from verified outcomes, and handoffs. A MemQ account and compatible MCP client are required; access follows your authenticated workspace.",
+        "developerName": "Multinex AI",
+        "category": "Productivity",
+        "capabilities": [
+          "Read",
+          "Write"
+        ],
+        "websiteURL": "https://multinex.ai/memq",
+        "privacyPolicyURL": "https://multinex.ai/privacy",
+        "termsOfServiceURL": "https://multinex.ai/terms",
+        "defaultPrompt": [
+          "Connect MemQ and verify my workspace before recalling any memory.",
+          "Save a concise checkpoint of this project so I can resume in another agent.",
+          "Prepare a teammate handoff with verified progress and next steps."
+        ],
+        "brandColor": "#D7A93B",
+        "composerIcon": "./assets/icon.png",
+        "logo": "./assets/logo.png"
+      }
+    }
+  }
+}

@@ -1,42 +1,37 @@
 {
   "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
   "name": "ai.multinex/memq",
-  "title": "Multinex MemQ",
-  "description": "Persistent memory for AI agents with OAuth-backed hosted MCP access.",
-  "version": "2.8.0",
+  "description": "Shared project memory that keeps teammates and AI agents aligned across sessions.",
+  "title": "MemQ Team Sync",
+  "repository": {
+    "url": "https://github.com/multinex-ai/memq",
+    "source": "github",
+    "subfolder": "mcp-server"
+  },
+  "version": "2.8.1",
+  "packages": [
+    {
+      "registryType": "oci",
+      "identifier": "ghcr.io/multinex-ai/memq-mcp-server:registry-2.8.1",
+      "transport": {
+        "type": "stdio"
+      },
+      "environmentVariables": [
+        {
+          "description": "MemQ API key from the Multinex billing dashboard",
+          "isRequired": true,
+          "format": "string",
+          "isSecret": true,
+          "name": "MEMQ_API_KEY"
+        }
+      ]
+    }
+  ],
   "remotes": [
     {
       "type": "streamable-http",
-      "url": "https://mcp.multinex.ai/mcp/v1",
-      "authorizationType": "oauth2",
-      "authorizationUrl": "https://billing.multinex.ai/oauth/authorize",
-      "tokenUrl": "https://billing.multinex.ai/oauth/token",
-      "registrationUrl": "https://billing.multinex.ai/oauth/register",
-      "discoveryUrl": "https://billing.multinex.ai/.well-known/oauth-authorization-server",
-      "scopes": ["memq.mcp"]
+      "url": "https://mcp.multinex.ai/mcp/v1"
     }
   ],
-  "_meta": {
-    "publisher": "Multinex AI",
-    "homepage": "https://multinex.ai/memq",
-    "documentation": "https://github.com/multinex-ai/memq-connect/blob/main/docs/MULTI_AGENT_USAGE_GUIDE.md",
-    "signup": "https://billing.multinex.ai/signup",
-    "dashboard": "https://billing.multinex.ai/dashboard",
-    "proof": "https://multinex.ai/benchmarks/memq",
-    "reproducibility": "https://multinex.ai/benchmarks/memq",
-    "npm": "@multinex/memq-mcp",
-    "docker": "ghcr.io/multinex-ai/memq-mcp-server:v2.8.0",
-    "pricing": {
-      "hosted": "$29/seat/month (15-day free trial available)",
-      "internal": "Free for authenticated @multinex.ai users",
-      "self_hosted": "Open Source"
-    },
-    "auth": {
-      "type": "oauth2",
-      "discoveryUrl": "https://billing.multinex.ai/.well-known/oauth-authorization-server",
-      "manualApiKeyHeader": "Authorization",
-      "manualVisaHeader": "X-Munx-Visa-Token"
-    },
-    "benchmark_scope": "Production v2.8.0 — 6 embedding profiles (memq-runtime, OpenAI, Google, Cohere), 9 live MCP capabilities, quantum-entropy reflection scheduling (ANU QRNG), 6000 writes/min and 6000 reads/min per namespace, 0.985 dedup threshold, 24-source replay fan-out, sub-second health round-trip on warm edge. Full benchmark methodology at https://multinex.ai/benchmarks/memq."
-  }
+  "_meta": {}
 }

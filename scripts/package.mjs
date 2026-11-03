@@ -1,0 +1,13 @@
+import fs from 'node:fs';
+import path from 'node:path';
+import {execFileSync} from 'node:child_process';
+import {createHash} from 'node:crypto';
+import './validate.mjs';
+const root=path.resolve(import.meta.dirname,'..');
+const version=JSON.parse(fs.readFileSync(path.join(root,'memq-brain/plugin.json'),'utf8')).version;
+const out=path.join(root,'dist');fs.mkdirSync(out,{recursive:true});
+const zip=path.join(out,`memq-brain-${version}.zip`);fs.rmSync(zip,{force:true});
+execFileSync('zip',['-X','-q','-r',zip,'plugin.json','mcp.json','.mcp.json','.claude-plugin','skills','assets','README.md','LICENSE'],{cwd:path.join(root,'memq-brain')});
+const digest=createHash('sha256').update(fs.readFileSync(zip)).digest('hex');
+fs.writeFileSync(`${zip}.sha256`,`${digest}  ${path.basename(zip)}\n`);
+console.log(zip);console.log(`SHA256 ${digest}`);
