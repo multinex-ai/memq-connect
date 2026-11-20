@@ -4,29 +4,10 @@
   "description": "Shared project memory that keeps teammates and AI agents aligned across sessions.",
   "title": "MemQ Team Sync",
   "repository": {
-    "url": "https://github.com/multinex-ai/memq",
-    "source": "github",
-    "subfolder": "mcp-server"
+    "url": "https://github.com/multinex-ai/memq-connect",
+    "source": "github"
   },
   "version": "2.8.1",
-  "packages": [
-    {
-      "registryType": "oci",
-      "identifier": "ghcr.io/multinex-ai/memq-mcp-server:registry-2.8.1",
-      "transport": {
-        "type": "stdio"
-      },
-      "environmentVariables": [
-        {
-          "description": "MemQ API key from the Multinex billing dashboard",
-          "isRequired": true,
-          "format": "string",
-          "isSecret": true,
-          "name": "MEMQ_API_KEY"
-        }
-      ]
-    }
-  ],
   "remotes": [
     {
       "type": "streamable-http",
