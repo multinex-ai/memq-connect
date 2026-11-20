@@ -1,3 +1,12 @@
+<div align="center">
+  <a href="https://multinex.ai">
+    <picture>
+      <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/multinex-ai/.github/master/profile/assets/multinex-lockup-dark.svg">
+      <img src="https://raw.githubusercontent.com/multinex-ai/.github/master/profile/assets/multinex-lockup-light.svg" alt="Multinex" width="180">
+    </picture>
+  </a>
+</div>
+
 # MemQ — one shared memory for your AI agents
 
 MemQ is a plug-and-play MCP connection with skills for remembering project decisions, resuming work across sessions, and handing context to teammates. Compatible agents can use the same authorized memory instead of building a separate history in every tool.
