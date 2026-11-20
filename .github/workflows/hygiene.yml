@@ -1,0 +1,33 @@
+name: hygiene
+
+on:
+  push:
+    branches: [main, master]
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  hygiene:
+    name: Public hygiene and JSON validity
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+
+      - name: JSON files parse
+        run: |
+          status=0
+          while IFS= read -r f; do
+            jq empty "$f" || { echo "::error file=$f::invalid JSON"; status=1; }
+          done < <(git ls-files '*.json' | grep -v 'tsconfig')
+          exit $status
+
+      - name: Public hygiene check
+        run: |
+          if grep -rnE "(/Users/[A-Za-z0-9._-]+/|Dockerfile\.munx|-----BEGIN (RSA |EC |OPENSSH )?PRIVATE KEY-----|products/munx-|munx-memorystack)" --exclude-dir=.git --exclude-dir=node_modules --exclude=hygiene.yml . ; then
+            echo "Public hygiene check failed."
+            exit 1
+          fi
+          echo "Public hygiene check passed."
